@@ -12,5 +12,5 @@ M.get_battery_color = require("battery.battery").get_battery_color
 M.get_battery_icon = require("battery.battery").get_battery_icon
 M.get_battery_table = require("battery.battery").get_battery_table
 M.get_battery_status = require("battery.battery").get_battery_status
-
+M.lualine = require("battery.lualine")
 return M
