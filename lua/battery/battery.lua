@@ -22,11 +22,16 @@ end
 
 function M.update_status()
   local config = require("battery.config").current
+  local misc = require("battery.misc")
   if M.table.percentage == nil then
     return
   end
-  M.icon = require("battery.misc").get_icon(M.table.percentage)
-  M.color = require("battery.misc").get_color(M.table.percentage)
+  if require("battery.battery").table.state == "charging" then
+    M.icon = misc.get_charging_icon(M.table.percentage)
+  else
+    M.icon = misc.get_icon(M.table.percentage)
+  end
+  M.color = misc.get_color(M.table.percentage)
   M.status = ""
 
   if config.show_number then

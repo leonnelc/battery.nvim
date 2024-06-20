@@ -11,6 +11,19 @@ M.battery_icons = {
 	[20] = "󰁻",
 	[10] = "󰁺",
 }
+M.battery_charging_icons = {
+	[100] = "󰂅",
+	[90] = "󰂋",
+	[80] = "󰂊",
+	[70] = "󰢞",
+	[60] = "󰂉",
+	[50] = "󰢝",
+	[40] = "󰂈",
+	[30] = "󰂇",
+	[20] = "󰂆",
+	[10] = "󰢜",
+
+}
 M.battery_colors = {
 	[89] = "#00ff00",
 	[70] = "#80ff00",
@@ -39,6 +52,10 @@ end
 
 function M.get_icon(battery_perc)
 	return get_closest_value(M.battery_icons, battery_perc)
+end
+
+function M.get_charging_icon(battery_perc)
+  return get_closest_value(M.battery_charging_icons, battery_perc)
 end
 
 function M.get_color(battery_perc)
