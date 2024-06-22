@@ -5,6 +5,10 @@ local loop = require("battery.loop")
 
 function M.setup(opts)
 	config.from_user_opts(opts)
+	if vim.fn.executable("upower") ~= 1 then
+		vim.api.nvim_notify("upower executable not found, battery.nvim will not start", vim.log.levels.WARN, {})
+		return
+	end
 	loop.start(upower.update_battery)
 end
 
